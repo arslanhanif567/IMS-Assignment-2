@@ -169,13 +169,6 @@ footer {
   margin-top: auto;
 }
 
-.form-page {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
 
 .center-container {
   display: flex;
@@ -191,6 +184,24 @@ footer {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 300px; /* or your custom width */
+}
+
+.role-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: #0f3c63;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.role-btn:hover {
+  background: #19507f;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 
