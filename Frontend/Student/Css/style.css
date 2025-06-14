@@ -167,7 +167,38 @@ footer {
   padding: 1rem;
   font-size: 0.95rem;
   margin-top: auto;
+
+
 }
+ /* student main page button links  */
+ /* .dashboard-links {
+  /* display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.dashboard-card {
+  background-color: #0f3c63;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 200px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.dashboard-card:hover {
+  background-color: #19507f;
+  transform: translateY(-5px);
+}
+
+.dashboard-card h3 {
+  font-size: 1.2rem;
+} */ */
 
 
 

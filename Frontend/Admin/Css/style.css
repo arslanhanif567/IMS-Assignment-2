@@ -174,7 +174,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* full viewport height */
+  height: 80vh; /* full viewport height */
   background-color: #f4f6f9; /* Optional: light background */
 }
 
@@ -202,6 +202,35 @@ footer {
   background: #19507f;
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+ /* naviagtion bar details  */
+ .dashboard-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.dashboard-card {
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 200px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.dashboard-card:hover {
+  background-color: #19507f;
+  transform: translateY(-5px);
+}
+
+.dashboard-card h3 {
+  font-size: 1.2rem;
 }
 
 
