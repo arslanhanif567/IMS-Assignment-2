@@ -1,4 +1,4 @@
-/* Reset and Base */
+//* Reset and Base */
 * {
   margin: 0;
   padding: 0;
@@ -167,12 +167,45 @@ footer {
   padding: 1rem;
   font-size: 0.95rem;
   margin-top: auto;
-
-
 }
- /* student main page button links  */
- /* .dashboard-links {
-  /* display: flex;
+
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* full viewport height */
+  background-color: #f4f6f9; /* Optional: light background */
+}
+
+.form-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px; /* or your custom width */
+}
+
+.role-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: #0f3c63;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.role-btn:hover {
+  background: #19507f;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+ /* naviagtion bar details  */
+ .dashboard-links {
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
@@ -180,8 +213,8 @@ footer {
 }
 
 .dashboard-card {
-  background-color: #0f3c63;
-  color: #fff;
+  background-color: whitesmoke;
+  color: black;
   text-align: center;
   padding: 2rem;
   border-radius: 12px;
@@ -198,7 +231,4 @@ footer {
 
 .dashboard-card h3 {
   font-size: 1.2rem;
-} */ */
-
-
-
+}
