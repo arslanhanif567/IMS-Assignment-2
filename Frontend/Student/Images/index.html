@@ -9,23 +9,31 @@
   <script src="../Js/theme-toggle.js" defer></script>
 </head>
 <body>
-  <header class="container">
-    <h1>Student Portal</h1>
-    <nav>
-      <ul>
-        <li><a href="internships.html">Browse Internships</a></li>
-        <li><a href="applications.html">My Applications</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="login.html" class="logout">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header>
+  <h1>Student Dashboard</h1>
+</header>
 
-  <main class="container">
-    <section class="welcome">
-      <h2>Welcome back, <span class="student-name">Student</span>!</h2>
-      <p>Use the navigation above to explore internship opportunities.</p>
-    </section>
-  </main>
+<div class="dashboard-links">
+  <a href="internships.html" class="dashboard-card">
+    <h3>View Internships</h3>
+  </a>
+  <a href="applications.html" class="dashboard-card">
+    <h3>My Applications</h3>
+  </a>
+  <a href="profile.html" class="dashboard-card">
+    <h3>My Profile</h3>
+  </a>
+  <a href="logout.html" class="dashboard-card">
+    <h3>Logout</h3>
+  </a>
+</div>
+
+<div class="container">
+  <div class="welcome">
+    <h2>Welcome, Student!</h2>
+    <p>Use the cards above to explore internships, track applications, and manage your profile.</p>
+  </div>
+</div>
+
 </body>
 </html>

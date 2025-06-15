@@ -1,4 +1,4 @@
-//* Reset and Base */
+/* Reset and Base */
 * {
   margin: 0;
   padding: 0;
@@ -232,3 +232,41 @@ footer {
 .dashboard-card h3 {
   font-size: 1.2rem;
 }
+/* STUDENT DASHBOARD NAVIGATION STYLE - Same as Admin */
+.dashboard-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.dashboard-card {
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 200px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.dashboard-card:hover {
+  background-color: #19507f;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.dashboard-card h3 {
+  font-size: 1.2rem;
+}
+
+/* Optionally: Use a consistent heading style */
+header h1, .welcome h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
