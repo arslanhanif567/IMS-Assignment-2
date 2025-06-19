@@ -2,21 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>View Applications</title>
-  <link rel="stylesheet" href="../Css/style.css" />
-  <link rel="icon" href="../logo/IMS_LOGO.png" type="png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internship Applications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .filter-container select {
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .application-card {
+      background: #fafafa;
+      border-left: 6px solid #4CAF50;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .application-card h3 {
+      margin: 0 0 10px;
+    }
+
+    .application-card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .status {
+      font-weight: bold;
+      color: #007BFF;
+    }
+
+    .action-buttons {
+      margin-top: 10px;
+    }
+
+    .action-buttons button {
+      margin-right: 10px;
+      padding: 6px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .accept-btn { background-color: #28a745; color: white; }
+    .reject-btn { background-color: #dc3545; color: white; }
+    .delete-btn { background-color: #6c757d; color: white; }
+  </style>
 </head>
 <body>
-  <h1>Applications</h1>
-  <a href="index.html">← Back to Dashboard</a>
+  <div class="container">
+    <h1>Internship Applications</h1>
 
-  <section>
-    <input type="text" placeholder="Search by student name..." />
-    <div id="applications-list">
-      <!-- Dynamic application list -->
-      <p>No applications to display.</p>
+    <div class="filter-container">
+      <label for="statusFilter"><strong>Filter by Status:</strong></label>
+      <select id="statusFilter">
+        <option value="All">All</option>
+        <option value="Pending">Pending</option>
+        <option value="Accepted">Accepted</option>
+        <option value="Rejected">Rejected</option>
+      </select>
     </div>
-  </section>
+
+    <div id="applications-container"></div>
+  </div>
+
+  <script>
+    
+  </script>
+  <script src="../JS/scripts.js"></script>
 </body>
 </html>
+
