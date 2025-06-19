@@ -5,26 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Company Signup</title>
   <link rel="stylesheet" href="../Css/style.css" />
-  <link rel="icon" href="../logo/IMS_LOGO.png" type="png">
+  <link rel="icon" href="../logo/IMS_LOGO.png" type="image/png">
 </head>
 <body>
-  <h1  style="margin-left:580px;">Register Your Company</h1>
-  <form class="form-wrapper" class="form-page"  style="margin-left:550px;">
-     <div class="center-container">
+  <h1 style="margin-left:580px;">Register Your Company</h1>
+  <form class="form-wrapper" style="margin-left:550px;" onsubmit="handleSignup(event)">
+    <div class="center-container">
       <div class="form-card">
-    <label>Company Name:</label>
-    <input type="text" name="name" required />
+        <label>Company Name:</label>
+        <input type="text" name="name" id="name" required />
 
-    <label>Email:</label>
-    <input type="email" name="email" required />
+        <label>Email:</label>
+        <input type="email" name="email" id="email" required />
 
-    <label>Password:</label>
-    <input type="password" name="password" required />
+        <label>Password:</label>
+        <input type="password" name="password" id="password" required />
 
-    <button type="submit">Sign Up</button>
-    <p>Already have an account? <a href="login.html">Login</a></p>
-    </div>
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
     </div>
   </form>
+
+  <script>
+  </script>
+  <script src="../JS/scripts.js"></script>
 </body>
 </html>
+
