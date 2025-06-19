@@ -5,36 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Company Login</title>
   <link rel="stylesheet" href="../Css/style.css" />
-  <link rel="icon" href="../logo/IMS_LOGO.png" type="png">
+  <link rel="icon" href="../logo/IMS_LOGO.png" type="image/png">
 </head>
 <body>
   <h1 style="margin-left:650px;">Company Login</h1>
   <form onsubmit="handleLogin(event)" class="form-wrapper" style="margin-left:600px;">
-     <div class="center-container">
-     <div class="form-card">
-    <label>Email:</label>
-    <input type="email" name="email" required />
+    <div class="center-container">
+      <div class="form-card">
+        <label>Email:</label>
+        <input type="email" name="email" id="email" required />
 
-    <label>Password:</label>
-    <input type="password" name="password" required />
+        <label>Password:</label>
+        <input type="password" name="password" id="password" required />
 
-    <button type="submit">Login</button>
-    <p>Don't have an account? <a href="signups.html">Sign Up</a></p>
-    
-<script>
-  function handleLogin(e) {
-    e.preventDefault();
-    // Replace with actual login check if using server
-    const isAdmin = window.location.pathname.includes("Admin");
-    if (isAdmin) {
-      window.location.href = "index.html"; // Admin dashboard
-    } else {
-      window.location.href = "../Images/index.html"; // Student dashboard
-    }
-  }
-</script>
-</div>
-</div>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="signups.html">Sign Up</a></p>
+      </div>
+    </div>
   </form>
+
+  <script>
+  </script>
+  <script src="../JS/scripts.js"></script>
 </body>
 </html>
