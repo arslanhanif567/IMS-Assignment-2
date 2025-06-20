@@ -3,25 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Company Profile</title>
-  <link rel="stylesheet" href="../Css/style.css" />
-  <link rel="icon" href="../logo/IMS_LOGO.png" type="png">
+  <title>InternConnect - Company Profile</title>
+  <link rel="icon" href="../logo/IMS_LOGO.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eef2f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    a.back-link {
+      display: block;
+      text-align: center;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    form label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 600;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background-color: #45a049;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+    }
+  </style>
 </head>
 <body>
-  <h1 style="margin-left:600px;">Company Profile</h1>
-  <a href="index.html" style="margin-left:600px;">← Back to Dashboard</a>
+  <div class="container">
+    <h1>Company Profile</h1>
+    <a href="index.html" class="back-link">&larr; Back to Dashboard</a>
 
-  <form style="margin-left:600px;">
-    <label>Company Name:</label>
-    <input type="text" name="name" />
+    <form onsubmit="updateProfile(event)">
+      <label>Company Name:</label>
+      <input type="text" name="name" id="name" required />
 
-    <label>Email:</label>
-    <input type="email" name="email" />
+      <label>Email:</label>
+      <input type="email" name="email" id="email" required />
 
-    <label>Password:</label>
-    <input type="password" name="password" />
+      <label>Password:</label>
+      <input type="password" name="password" id="password" required />
 
-    <button type="submit">Update Profile</button>
-  </form>
+      <label>Company Description:</label>
+      <textarea name="description" id="description" rows="4"></textarea>
+
+      <label>Contact Number:</label>
+      <input type="text" name="contact" id="contact" />
+
+      <label>Company Website:</label>
+      <input type="url" name="website" id="website" />
+
+      <button type="submit">Update Profile</button>
+    </form>
+
+    <div class="message" id="updateMsg"></div>
+  </div>
+
+  <script>
+    // Load profile if it exists
+    window.onload = () => {
+      const data = JSON.parse(localStorage.getItem("companyProfile"));
+      if (data) {
+        document.getElementById("name").value = data.name || "";
+        document.getElementById("email").value = data.email || "";
+        document.getElementById("password").value = data.password || "";
+        document.getElementById("description").value = data.description || "";
+        document.getElementById("contact").value = data.contact || "";
+        document.getElementById("website").value = data.website || "";
+      }
+    }
+
+    function updateProfile(e) {
+      e.preventDefault();
+
+      const profileData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        description: document.getElementById("description").value,
+        contact: document.getElementById("contact").value,
+        website: document.getElementById("website").value
+      };
+
+      localStorage.setItem("companyProfile", JSON.stringify(profileData));
+
+      document.getElementById("updateMsg").textContent = "Profile updated successfully!";
+      setTimeout(() => {
+        document.getElementById("updateMsg").textContent = "";
+      }, 3000);
+    }
+  </script>
 </body>
 </html>

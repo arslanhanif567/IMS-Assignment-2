@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InternConnect - Manage Internships</title>
-  <link rel="stylesheet" href="../Css/style.css" />
   <link rel="icon" href="../logo/IMS_LOGO.png" type="image/png">
   <style>
     body {
@@ -12,19 +11,37 @@
       padding: 20px;
       background-color: #d6eaf8;
     }
-
     h1 {
       text-align: center;
-      color: #333;
+      color: #fff;
+      background-color: #000;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 24px;
+      font-weight: bold;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin: 20px 0;
     }
-
     a {
-      display: block;
-      margin-bottom: 20px;
-      color: #007bff;
+      display: inline-block;
       text-decoration: none;
+      background: linear-gradient(to right, #6366f1, #3b82f6);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
     }
-
+    a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+    a:active {
+      transform: scale(0.97);
+    }
     button {
       padding: 10px 15px;
       background-color: #00509e;
@@ -34,12 +51,10 @@
       cursor: pointer;
       margin-bottom: 10px;
     }
-
     .delete-btn {
       background-color: #d9534f;
       margin-top: 10px;
     }
-
     .internship-card {
       background: white;
       padding: 15px;
@@ -48,15 +63,12 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-
     .internship-card h3 {
       margin: 0 0 5px;
     }
-
     .internship-card p {
       margin: 4px 0;
     }
-
     .modal {
       display: none;
       position: fixed;
@@ -65,89 +77,40 @@
       justify-content: center;
       align-items: center;
     }
-
     .modal-content {
       background: white;
       padding: 20px;
       border-radius: 10px;
       width: 300px;
     }
-
-    .modal-content input, .modal-content textarea {
+    .modal-content input,
+    .modal-content textarea {
       width: 100%;
       padding: 8px;
       margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+    .modal-content h3 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
- <h1 style="
-  background-color: black;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 24px;
-  font-weight: bold;
-  display: inline-block;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  margin: 20px 0;
-">
-  Manage Internships
-</h1>
 
-  <a href="index.html"
-  style="
-    display: inline-block;
-    text-decoration: none;
-    background: linear-gradient(to right, #6366f1, #3b82f6); /* indigo to blue */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-  "
-  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 14px rgba(0,0,0,0.15)'"
-  onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
-  onmousedown="this.style.transform='scale(0.97)'"
-  onmouseup="this.style.transform='translateY(-2px)'"
->
-  ← Back to Dashboard
-</a>
-
+  <a href="index.html">← Back to Dashboard</a>
 
   <section>
-  <button onclick="openForm()" 
-    style="
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease;
-    "
-    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0, 0, 0, 0.2)'"
-    onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)'"
-    onmousedown="this.style.transform='scale(0.98)'"
-    onmouseup="this.style.transform='translateY(-2px)'"
-  >
-    Add New Internship
-  </button>
+    <button onclick="openForm()" style="background: linear-gradient(to right, #4facfe, #00f2fe); font-size: 16px; font-weight: 600; border-radius: 8px; padding: 12px 24px; margin-top: 20px;">
+      Add New Internship
+    </button>
 
-  <div id="internship-list">
-    <p>No internships found.</p>
-  </div>
-</section>
+    <div id="internship-list">
+      <p>No internships found.</p>
+    </div>
+  </section>
 
-
+  <!-- Post Internship Modal -->
   <div class="modal" id="formModal">
     <div class="modal-content">
       <h3>Post Internship</h3>
@@ -155,13 +118,62 @@
       <input type="text" id="company" placeholder="Company Name" required />
       <textarea id="description" placeholder="Job Description"></textarea>
       <input type="text" id="location" placeholder="Location" />
+      <input type="text" id="salary" placeholder="Salary" />
+      <input type="date" id="startDate" placeholder="Start Date" />
+      <input type="date" id="endDate" placeholder="End Date" />
       <button onclick="submitInternship()">Post</button>
     </div>
   </div>
 
+  <!-- Apply Internship Modal -->
+  <div class="modal" id="applyModal">
+    <div class="modal-content">
+      <h3>Apply for Internship</h3>
+      <input type="text" id="applicantName" placeholder="Your Full Name" required />
+      <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" />
+      <button onclick="submitApplication()">Submit Application</button>
+    </div>
+  </div>
+
   <script>
-    let internships = JSON.parse(localStorage.getItem("internships") || "[]");
+    const defaultInternships = [
+      {
+        role: "Frontend Developer Intern",
+        company: "TechNova",
+        description: "Work with HTML, CSS, and JavaScript to build responsive UI.",
+        location: "Dubai",
+        salary: "AED 2000",
+        startDate: "2025-07-01",
+        endDate: "2025-09-30"
+      },
+      {
+        role: "Data Analyst Intern",
+        company: "DataScope",
+        description: "Analyze business data and generate reports using Excel and Python.",
+        location: "Abu Dhabi",
+        salary: "AED 2500",
+        startDate: "2025-08-01",
+        endDate: "2025-10-31"
+      },
+      {
+        role: "Cybersecurity Intern",
+        company: "SecureTech",
+        description: "Assist in penetration testing and system monitoring.",
+        location: "Sharjah",
+        salary: "AED 3000",
+        startDate: "2025-07-15",
+        endDate: "2025-09-15"
+      }
+    ];
+
+    let internships = JSON.parse(localStorage.getItem("internships"));
+    if (!internships || internships.length === 0) {
+      internships = defaultInternships;
+      localStorage.setItem("internships", JSON.stringify(internships));
+    }
+
     const listDiv = document.getElementById("internship-list");
+    let selectedInternshipIndex = null;
 
     function renderInternships() {
       listDiv.innerHTML = internships.length === 0 ? '<p>No internships found.</p>' : "";
@@ -171,7 +183,11 @@
         card.innerHTML = `
           <h3>${intern.role} - ${intern.company}</h3>
           <p><strong>Location:</strong> ${intern.location}</p>
+          <p><strong>Salary:</strong> ${intern.salary}</p>
+          <p><strong>Start Date:</strong> ${intern.startDate}</p>
+          <p><strong>End Date:</strong> ${intern.endDate}</p>
           <p>${intern.description}</p>
+          <button style="background:#28a745;" onclick="openApplyForm(${index})">Apply</button>
           <button class="delete-btn" onclick="deleteInternship(${index})">Delete</button>
         `;
         listDiv.appendChild(card);
@@ -191,10 +207,13 @@
       const company = document.getElementById("company").value;
       const description = document.getElementById("description").value;
       const location = document.getElementById("location").value;
+      const salary = document.getElementById("salary").value;
+      const startDate = document.getElementById("startDate").value;
+      const endDate = document.getElementById("endDate").value;
 
       if (!role || !company) return alert("Job Title and Company Name are required!");
 
-      internships.push({ role, company, description, location });
+      internships.push({ role, company, description, location, salary, startDate, endDate });
       localStorage.setItem("internships", JSON.stringify(internships));
 
       closeForm();
@@ -209,11 +228,49 @@
       }
     }
 
-    // Close modal if clicked outside
-    window.onclick = function(event) {
-      if (event.target == document.getElementById("formModal")) {
-        closeForm();
-      }
+    function openApplyForm(index) {
+      selectedInternshipIndex = index;
+      document.getElementById("applyModal").style.display = "flex";
+    }
+
+    function closeApplyForm() {
+      document.getElementById("applyModal").style.display = "none";
+      document.getElementById("applicantName").value = "";
+      document.getElementById("resumeFile").value = "";
+    }
+
+    function submitApplication() {
+      const name = document.getElementById("applicantName").value.trim();
+      const file = document.getElementById("resumeFile").files[0];
+
+      if (!name || !file) return alert("Please enter your name and select a resume!");
+
+      const reader = new FileReader();
+      reader.onload = function () {
+        const resumeBase64 = reader.result;
+
+        const applications = JSON.parse(localStorage.getItem("applications")) || [];
+
+        applications.push({
+          name,
+          internshipId: selectedInternshipIndex,
+          internshipTitle: internships[selectedInternshipIndex].role,
+          company: internships[selectedInternshipIndex].company,
+          resume: resumeBase64,
+          status: "Pending"
+        });
+
+        localStorage.setItem("applications", JSON.stringify(applications));
+        alert("Application submitted successfully!");
+        closeApplyForm();
+      };
+
+      reader.readAsDataURL(file);
+    }
+
+    window.onclick = function (event) {
+      if (event.target == document.getElementById("formModal")) closeForm();
+      if (event.target == document.getElementById("applyModal")) closeApplyForm();
     }
 
     renderInternships();

@@ -2,33 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>InternConnect - Company Signup</title>
-  <link rel="stylesheet" href="../Css/style.css" />
   <link rel="icon" href="../logo/IMS_LOGO.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, white , #4facfe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-wrapper {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      .form-wrapper {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1 style="margin-left:580px;">Register Your Company</h1>
-  <form class="form-wrapper" style="margin-left:550px;" onsubmit="handleSignup(event)">
-    <div class="center-container">
-      <div class="form-card">
-        <label>Company Name:</label>
-        <input type="text" name="name" id="name" required />
 
-        <label>Email:</label>
-        <input type="email" name="email" id="email" required />
+  <div class="form-wrapper">
+    <h1>Register Your Company</h1>
+    <form onsubmit="handleSignup(event)">
+      <label for="name">Company Name:</label>
+      <input type="text" name="name" id="name" required />
 
-        <label>Password:</label>
-        <input type="password" name="password" id="password" required />
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required />
 
-        <button type="submit">Sign Up</button>
-        <p>Already have an account? <a href="login.html">Login</a></p>
-      </div>
-    </div>
-  </form>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required />
 
-  <script>
-  </script>
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+
   <script src="../JS/scripts.js"></script>
 </body>
 </html>

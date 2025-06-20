@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Company Admin Dashboard</title>
+  <title>InternConnect - Admin Dashboard</title>
   <link rel="stylesheet" href="../Css/style.css" />
   <link rel="icon" href="../logo/IMS_LOGO.png" type="png">
 </head>
 <body>
   <header>
     <div class="container">
-      <h1 style="margin-left:400px;">Admin Dashboard</h1>
+      <h1 style="margin-left:350px;">InternConnect - Admin Dashboard</h1>
       <nav>
         <main class="dashboard-links">
   <a href="internships.html" class="dashboard-card">
@@ -54,22 +54,22 @@
 
   <main class="container">
     <section class="welcome">
-      <h2>Admin Logged in Successfully <span class="company-name"></span>!</h2>
+      <h2>InternConnect - Admin Logged in Successfully <span class="company-name"></span>!</h2>
       <p>Use the navigation above to manage your internships and applications.</p>
     </section>
 
     <section class="stats">
       <div class="stat-box">
         <h3>Posted Internships</h3>
-        <p class="number">12</p>
+        <p class="number">0</p>
       </div>
       <div class="stat-box">
         <h3>Applications Received</h3>
-        <p class="number">48</p>
+        <p class="number">0</p>
       </div>
       <div class="stat-box">
         <h3>Shortlisted Candidates</h3>
-        <p class="number">8</p>
+        <p class="number">0</p>
       </div>
     </section>
   </main>
@@ -79,5 +79,19 @@
       <p>&copy; 2025 Internship Portal. All rights reserved.</p>
     </div>
   </footer>
+  <script>
+  // Get all internships from localStorage (or empty array if none)
+  const internships = JSON.parse(localStorage.getItem("internships")) || [];
+
+  // Count total internships
+  const totalPosted = internships.length;
+
+  // Find the corresponding number box in the dashboard
+  const postedElem = document.querySelector(".stat-box:nth-child(1) .number");
+
+  // Update the content
+  postedElem.textContent = totalPosted;
+</script>
+
 </body>
 </html>

@@ -76,12 +76,12 @@
 
     .accept-btn { background-color: #28a745; color: white; }
     .reject-btn { background-color: #dc3545; color: white; }
-    .delete-btn { background-color: #6c757d; color: white; }
+    .shortlist-btn { background-color: #ffc107; color: black; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Internship Applications</h1>
+    <h1>InternConnect - Internship Applications</h1>
 
     <div class="filter-container">
       <label for="statusFilter"><strong>Filter by Status:</strong></label>
@@ -90,6 +90,7 @@
         <option value="Pending">Pending</option>
         <option value="Accepted">Accepted</option>
         <option value="Rejected">Rejected</option>
+        <option value="Shortlisted">Shortlisted</option>
       </select>
     </div>
 
@@ -97,9 +98,65 @@
   </div>
 
   <script>
-    
+    const defaultApplications = [
+      { studentName: "Ali Khan", internshipTitle: "Frontend Developer", status: "Pending" },
+      { studentName: "Sara Ahmed", internshipTitle: "UI/UX Designer", status: "Pending" },
+      { studentName: "Bilal Shaikh", internshipTitle: "Backend Developer", status: "Pending" }
+    ];
+
+    let applications = JSON.parse(localStorage.getItem("applications") || "null");
+    if (!applications || applications.length === 0) {
+      applications = defaultApplications;
+      localStorage.setItem("applications", JSON.stringify(applications));
+    }
+
+    const container = document.getElementById("applications-container");
+    const filter = document.getElementById("statusFilter");
+
+    function renderApplications(status = "All") {
+      container.innerHTML = "";
+      const filtered = status === "All" ? applications : applications.filter(app => app.status === status);
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<p>No applications found.</p>`;
+        return;
+      }
+
+      filtered.forEach((app, index) => {
+        const card = document.createElement("div");
+        card.className = "application-card";
+        card.innerHTML = `
+          <h3>${app.studentName}</h3>
+          <p><strong>Internship:</strong> ${app.internshipTitle}</p>
+          <p><strong>Status:</strong> <span class="status">${app.status}</span></p>
+          <div class="action-buttons">
+            <button class="accept-btn" onclick="updateStatus(${index}, 'Accepted')">Accept</button>
+            <button class="reject-btn" onclick="updateStatus(${index}, 'Rejected')">Reject</button>
+            <button class="shortlist-btn" onclick="updateStatus(${index}, 'Shortlisted')">Shortlist</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function updateStatus(index, newStatus) {
+      applications[index].status = newStatus;
+      localStorage.setItem("applications", JSON.stringify(applications));
+      renderApplications(filter.value);
+      updateDashboardStats();
+    }
+
+    filter.addEventListener("change", () => renderApplications(filter.value));
+
+    // Update stats on dashboard
+    function updateDashboardStats() {
+      const all = applications.length;
+      const shortlisted = applications.filter(a => a.status === "Shortlisted").length;
+      localStorage.setItem("applicationStats", JSON.stringify({ all, shortlisted }));
+    }
+
+    updateDashboardStats();
+    renderApplications();
   </script>
-  <script src="../JS/scripts.js"></script>
 </body>
 </html>
-
