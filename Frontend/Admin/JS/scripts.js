@@ -218,7 +218,38 @@
   }
 
   renderInternships();
-  
+  // Load profile if it exists
+    window.onload = () => {
+      const data = JSON.parse(localStorage.getItem("companyProfile"));
+      if (data) {
+        document.getElementById("name").value = data.name || "";
+        document.getElementById("email").value = data.email || "";
+        document.getElementById("password").value = data.password || "";
+        document.getElementById("description").value = data.description || "";
+        document.getElementById("contact").value = data.contact || "";
+        document.getElementById("website").value = data.website || "";
+      }
+    }
+
+    function updateProfile(e) {
+      e.preventDefault();
+
+      const profileData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        description: document.getElementById("description").value,
+        contact: document.getElementById("contact").value,
+        website: document.getElementById("website").value
+      };
+
+      localStorage.setItem("companyProfile", JSON.stringify(profileData));
+
+      document.getElementById("updateMsg").textContent = "Profile updated successfully!";
+      setTimeout(() => {
+        document.getElementById("updateMsg").textContent = "";
+      }, 3000);
+    }
 
 
     

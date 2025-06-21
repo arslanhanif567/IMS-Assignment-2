@@ -96,37 +96,7 @@
   </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const internships = JSON.parse(localStorage.getItem("internships")) || [];
-
-      const container = document.getElementById("internship-list");
-
-      if (internships.length === 0) {
-        container.innerHTML = "<p>No internships available at the moment.</p>";
-        return;
-      }
-
-      internships.forEach(internship => {
-        const card = document.createElement("article");
-        card.className = "card";
-        card.innerHTML = `
-          <h3>${internship.title}</h3>
-          <p><strong>Company:</strong> ${internship.company}</p>
-          <p><strong>Location:</strong> ${internship.location}</p>
-          <p><strong>Duration:</strong> ${internship.duration}</p>
-          <p>${internship.description}</p>
-          <button onclick="applyInternship('${internship.title}')">Apply Now</button>
-        `;
-        container.appendChild(card);
-      });
-    });
-
-    function applyInternship(title) {
-      alert("You have applied for: " + title);
-      // You can store application info here or redirect
-    }
   </script>
-</body>
-</html>
+ <script src="../JS/scripts.js"></script>
 </body>
 </html>

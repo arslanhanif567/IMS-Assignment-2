@@ -141,33 +141,7 @@
   </div>
 
   <script>
-    // Load profile on page load
-    window.onload = function () {
-      const student = JSON.parse(localStorage.getItem("student"));
-      if (student) {
-        document.getElementById("fullName").value = student.fullName || "";
-        document.getElementById("email").value = student.email || "";
-        document.getElementById("university").value = student.university || "";
-        document.getElementById("major").value = student.major || "";
-        document.getElementById("phone").value = student.phone || "";
-      }
-    };
-
-    function updateProfile(event) {
-      event.preventDefault();
-
-      const updatedStudent = {
-        fullName: document.getElementById("fullName").value,
-        email: document.getElementById("email").value,
-        university: document.getElementById("university").value,
-        major: document.getElementById("major").value,
-        phone: document.getElementById("phone").value,
-        password: JSON.parse(localStorage.getItem("student")).password // keep old password
-      };
-
-      localStorage.setItem("student", JSON.stringify(updatedStudent));
-      document.getElementById("successMsg").style.display = "block";
-    }
   </script>
+  <script src="../JS/scripts.js"></script>
 </body>
 </html>
