@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Available Internships</title>
+  <link rel="stylesheet" href="../Css/style.css">
+  <link rel="icon" href="../logo/IMS_LOGO.png" type="image/png">
+  <script src="../Js/theme-toggle.js" defer></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+    }
+
+    header.container {
+      background: #0077cc;
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    main.container {
+      padding: 30px;
+    }
+
+    .internships {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card p {
+      color: #444;
+    }
+
+    .card button {
+      background: #0077cc;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <h1>Internships</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="login.html" class="logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="internships" id="internship-list">
+      <!-- Internships will be inserted here -->
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const internships = JSON.parse(localStorage.getItem("internships")) || [];
+
+      const container = document.getElementById("internship-list");
+
+      if (internships.length === 0) {
+        container.innerHTML = "<p>No internships available at the moment.</p>";
+        return;
+      }
+
+      internships.forEach(internship => {
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${internship.title}</h3>
+          <p><strong>Company:</strong> ${internship.company}</p>
+          <p><strong>Location:</strong> ${internship.location}</p>
+          <p><strong>Duration:</strong> ${internship.duration}</p>
+          <p>${internship.description}</p>
+          <button onclick="applyInternship('${internship.title}')">Apply Now</button>
+        `;
+        container.appendChild(card);
+      });
+    });
+
+    function applyInternship(title) {
+      alert("You have applied for: " + title);
+      // You can store application info here or redirect
+    }
+  </script>
+</body>
+</html>
+

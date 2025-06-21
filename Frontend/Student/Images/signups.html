@@ -6,10 +6,86 @@
   <title>Student Signup</title>
   <link rel="stylesheet" href="../Css/style.css" />
   <link rel="icon" href="../logo/IMS_LOGO.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #dfe9f3, #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 500px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+    }
+
+    .form-box input {
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .form-box input:focus {
+      border-color: #0077cc;
+      outline: none;
+      box-shadow: 0 0 4px #0077ccaa;
+    }
+
+    .form-box button {
+      background-color: #0077cc;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-box button:hover {
+      background-color: #005fa3;
+    }
+
+    .form-box p {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    .form-box a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .form-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <div class="form-container">
-    <form class="form-box" onsubmit="handleSignup(event)" style="margin-left:580px;">
+    <form class="form-box" onsubmit="handleSignup(event)">
       <h2>Student Signup</h2>
 
       <input type="text" id="fullName" placeholder="Full Name" required />
@@ -51,9 +127,7 @@
         password
       };
 
-      // Save to localStorage
       localStorage.setItem("student", JSON.stringify(studentData));
-
       alert("Signup successful! Redirecting to your dashboard...");
       window.location.href = "../Images/index.html"; // Student dashboard
     }
