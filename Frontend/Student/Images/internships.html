@@ -44,41 +44,46 @@
     .internships {
       display: grid;
       gap: 20px;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     }
 
-    .card {
+    .internship-card {
       background: white;
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .card h3 {
+    .internship-card h3 {
       margin-top: 0;
     }
 
-    .card p {
+    .internship-card p {
       color: #444;
     }
 
-    .card button {
+    .internship-card button {
       background: #0077cc;
       color: white;
       border: none;
       padding: 10px 16px;
       border-radius: 8px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
-    .card button:hover {
+    .internship-card button:hover {
       background: #005fa3;
+    }
+
+    .internship-card input[type="file"] {
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
   <header class="container">
-    <h1>Internships</h1>
+    <h1>Available Internships</h1>
     <nav>
       <ul>
         <li><a href="index.html">Dashboard</a></li>
@@ -91,12 +96,10 @@
 
   <main class="container">
     <section class="internships" id="internship-list">
-      <!-- Internships will be inserted here -->
+      <!-- Internships will be loaded here by scripts.js -->
     </section>
   </main>
 
-  <script>
-  </script>
- <script src="../JS/scripts.js"></script>
+  <script src="../Js/scripts.js"></script>
 </body>
 </html>

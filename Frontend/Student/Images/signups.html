@@ -85,14 +85,14 @@
 </head>
 <body>
   <div class="form-container">
-    <form class="form-box" onsubmit="handleSignup(event)">
+    <form id="signup-form" class="form-box">
       <h2>Student Signup</h2>
 
       <input type="text" id="fullName" placeholder="Full Name" required />
       <input type="email" id="email" placeholder="Email" required />
-      <input type="text" id="university" placeholder="University" required />
-      <input type="text" id="major" placeholder="Major" required />
-      <input type="text" id="phone" placeholder="Phone Number" required />
+      <input type="text" id="university" placeholder="University" />
+      <input type="text" id="major" placeholder="Major" />
+      <input type="text" id="phoneNumber" placeholder="Phone Number" />
       <input type="password" id="password" placeholder="Password" required />
       <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
 
@@ -101,9 +101,7 @@
     </form>
   </div>
 
-  <script>
-  </script>
-  <script src="../JS/scripts.js"></script>
+  <script src="../Js/scripts.js"></script>
 </body>
 </html>
 

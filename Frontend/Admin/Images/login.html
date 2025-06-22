@@ -90,7 +90,7 @@
 
   <div class="form-wrapper">
     <h1>Admin Login</h1>
-    <form onsubmit="handleLogin(event)" class="form-card">
+    <form id="login-form" class="form-card">
       <label for="email">Email:</label>
       <input type="email" id="email" required />
 
@@ -102,36 +102,6 @@
     </form>
   </div>
 
-  <script>
-    function handleLogin(event) {
-      event.preventDefault();
-
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      fetch('http://localhost:3000/api/auth/student/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.student) {
-          localStorage.setItem('student', JSON.stringify(data.student));
-          alert("Login successful!");
-          window.location.href = "index.html"; // Student dashboard
-        } else {
-          alert(data.error || "Login failed. Please try again.");
-        }
-      })
-      .catch(err => {
-        console.error("Login error:", err);
-        alert("Something went wrong. Please try again later.");
-      });
-    }
-  </script>
 <script src="../JS/scripts.js"></script>
 </body>
 </html>
